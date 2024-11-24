@@ -10,6 +10,9 @@ const NavBar = () => {
         <Link to={"/menu"}>Menu</Link>
       </li>
       <li>
+        <Link to={"/order/salad"}>Order</Link>
+      </li>
+      <li>
         <a>Item 1</a>
       </li>
       <li>
