@@ -7,6 +7,10 @@ import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Secret from "./Shared/Secret/Secret";
+import Dashboard from "./Layout/Dashboard";
+import CartItem from "./dashboard/cart/CartItem";
+import CartHome from "./dashboard/CartHome/CartHome";
+import CartCalender from "./dashboard/cartCalender/CartCalender";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +44,28 @@ export const router = createBrowserRouter([
       {
         path: "order/:category",
         element: <Order></Order>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "cartHome",
+        element: <CartHome></CartHome>,
+      },
+      {
+        path: "cartItem",
+        element: <CartItem></CartItem>,
+      },
+      {
+        path: "cartCalender",
+        element: <CartCalender></CartCalender>,
       },
     ],
   },

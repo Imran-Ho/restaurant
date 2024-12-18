@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import useAxiosPublic from "../../hook/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const { createUser } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -15,6 +19,24 @@ const SignUp = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      // user details will be sent to database.
+      const firstName = data.firstName;
+      const lastName = data.lastName;
+      const displayName = firstName + " " + lastName;
+      const userInfo = { name: displayName, email: data.email };
+      axiosPublic.post("/users", userInfo).then((res) => {
+        if (res.data.insertedId) {
+          console.log("user added to database.");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "user created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        }
+      });
     });
   };
 
