@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosPublic from "../../hook/useAxiosPublic";
 import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -123,6 +124,9 @@ const SignUp = () => {
               </div>
             </form>
             <div>
+              <div>
+                <SocialLogin></SocialLogin>
+              </div>
               <label className="label">
                 <span className="label-text">
                   Do you have an account?{" "}

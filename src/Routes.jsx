@@ -11,6 +11,10 @@ import Dashboard from "./Layout/Dashboard";
 import CartItem from "./dashboard/cart/CartItem";
 import CartHome from "./dashboard/CartHome/CartHome";
 import CartCalender from "./dashboard/cartCalender/CartCalender";
+import AllUsers from "./dashboard/allUsers/AllUsers";
+import AddItems from "./Pages/AddItems/AddItems";
+import AdminRoute from "./Pages/PrivateRoute/AdminRoute";
+import ManageItem from "./dashboard/manageItem/ManageItem";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +70,31 @@ export const router = createBrowserRouter([
       {
         path: "cartCalender",
         element: <CartCalender></CartCalender>,
+      },
+      // Admin Role Users only.
+      {
+        path: "addItem",
+        element: (
+          <AdminRoute>
+            <AddItems></AddItems>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageItem",
+        element: (
+          <AdminRoute>
+            <ManageItem></ManageItem>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allUsers",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
     ],
   },

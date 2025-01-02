@@ -7,6 +7,7 @@ import {
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   //bring authContext
@@ -119,6 +120,9 @@ const Login = () => {
               />
             </div>
           </form>
+          <div>
+            <SocialLogin></SocialLogin>
+          </div>
           <div>
             <h2>
               are you new user? <Link to={"/signup"}>create an account.</Link>
