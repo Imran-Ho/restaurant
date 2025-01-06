@@ -2,18 +2,21 @@ import {
   FaCalendar,
   FaCartPlus,
   FaHome,
+  FaList,
   FaPhone,
   FaUsers,
   FaUtensils,
 } from "react-icons/fa";
-import { FaBookOpen, FaList } from "react-icons/fa6";
+
 import { TiThMenu } from "react-icons/ti";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hook/useAdmin";
+import useCart from "../hook/useCart";
 
 const Dashboard = () => {
   // TODO: get isAdmin value from the database.
   const [isAdmin] = useAdmin();
+  const [cart] = useCart();
   return (
     <div className="flex">
       {/* dashboard side bar */}
@@ -39,12 +42,7 @@ const Dashboard = () => {
                   Manage Items
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/manageBooking">
-                  <FaBookOpen></FaBookOpen>
-                  Manage Bookings
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to="/dashboard/allUsers">
                   <FaUsers></FaUsers>
@@ -55,7 +53,7 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
-                <NavLink to="/dashboard/cartHome">
+                <NavLink to="/dashboard/userHome">
                   <FaHome></FaHome>
                   User Home
                 </NavLink>
@@ -63,13 +61,13 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/cartItem">
                   <FaCartPlus></FaCartPlus>
-                  My cart
+                  My cart ({cart.length})
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/cartCalender">
+                <NavLink to="/dashboard/paymentDetails">
                   <FaCalendar></FaCalendar>
-                  My Booking
+                  Payment Details
                 </NavLink>
               </li>
             </>

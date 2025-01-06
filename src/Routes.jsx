@@ -9,12 +9,16 @@ import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Secret from "./Shared/Secret/Secret";
 import Dashboard from "./Layout/Dashboard";
 import CartItem from "./dashboard/cart/CartItem";
-import CartHome from "./dashboard/CartHome/CartHome";
 import CartCalender from "./dashboard/cartCalender/CartCalender";
 import AllUsers from "./dashboard/allUsers/AllUsers";
 import AddItems from "./Pages/AddItems/AddItems";
 import AdminRoute from "./Pages/PrivateRoute/AdminRoute";
 import ManageItem from "./dashboard/manageItem/ManageItem";
+import UpdateItem from "./dashboard/updateItem/UpdateItem";
+import Payment from "./dashboard/payment/Payment";
+import PaymentDetails from "./dashboard/paymentDetails/PaymentDetails";
+import AdminHome from "./dashboard/adminHome/AdminHome";
+import UserHome from "./dashboard/userHome/UserHome";
 
 export const router = createBrowserRouter([
   {
@@ -60,8 +64,8 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "cartHome",
-        element: <CartHome></CartHome>,
+        path: "userHome",
+        element: <UserHome></UserHome>,
       },
       {
         path: "cartItem",
@@ -71,7 +75,23 @@ export const router = createBrowserRouter([
         path: "cartCalender",
         element: <CartCalender></CartCalender>,
       },
+      {
+        path: "paymentDetails",
+        element: <PaymentDetails></PaymentDetails>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
       // Admin Role Users only.
+      {
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
+      },
       {
         path: "addItem",
         element: (
@@ -95,6 +115,16 @@ export const router = createBrowserRouter([
             <AllUsers></AllUsers>
           </AdminRoute>
         ),
+      },
+      {
+        path: "updateItem/:id",
+        element: (
+          <AdminRoute>
+            <UpdateItem></UpdateItem>
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://fake-restaurent-server.vercel.app/menu/${params.id}`),
       },
     ],
   },

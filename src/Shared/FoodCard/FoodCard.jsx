@@ -24,7 +24,7 @@ const FoodCard = ({ item }) => {
         image,
         price,
       };
-      // axios.post("http://localhost:5000/carts", cartItem).then((res) => {
+      // axios.post("https://fake-restaurent-server.vercel.app/carts", cartItem).then((res) => {
       axiosSecure.post("/carts", cartItem).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

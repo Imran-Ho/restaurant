@@ -3,6 +3,7 @@ import useMenu from "../../hook/useMenu";
 import SectionTitles from "../../components/SectionTitles/SectionTitles";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hook/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const ManageItem = () => {
   const [menu] = useMenu();
@@ -84,12 +85,11 @@ const ManageItem = () => {
                   <td>{item.price}</td>
                   <td>{item.category}</td>
                   <th>
-                    <button
-                      onClick={() => handleUpdateItem(item)}
-                      className="btn btn-ghost btn-lg text-red-600"
-                    >
-                      <FaEdit></FaEdit>
-                    </button>
+                    <Link to={`/dashboard/updateItem/${item._id}`}>
+                      <button className="btn btn-ghost btn-lg text-red-600">
+                        <FaEdit></FaEdit>
+                      </button>
+                    </Link>
                   </th>
                   <th>
                     <button
