@@ -91,10 +91,10 @@ const CheckOutForm = () => {
         options={{
           style: {
             base: {
-              fontSize: "16px",
-              color: "#424770",
+              fontSize: "20px",
+              color: "#704842",
               "::placeholder": {
-                color: "#aab7c4",
+                color: "#704842",
               },
             },
             invalid: {

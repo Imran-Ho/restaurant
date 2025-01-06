@@ -33,7 +33,7 @@ const NavBar = () => {
           <Link to={"/dashboard/adminHome"}>Dashboard</Link>
         </li>
       )}
-      ,
+
       {user && !isAdmin && (
         <li>
           <Link to={"/dashboard/userHome"}>Dashboard</Link>
@@ -47,35 +47,8 @@ const NavBar = () => {
           </button>
         </Link>
       </li>
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
-      </li>
-      {user ? (
-        <>
-          <button onClick={handleLogOut} className="btn btn-sm btn-error">
-            Log Out
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to={"/login"}>Login</Link>
-          </li>
-        </>
-      )}
+
+      <li></li>
     </>
   );
   return (
@@ -101,18 +74,30 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-36 p-2 shadow bg-black"
             >
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Fake Restaurant</a>
+          <a className="btn btn-ghost text-xl">Simple Restaurant</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          {user ? (
+            <>
+              <button onClick={handleLogOut} className="btn btn-sm btn-error">
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="btn btn-sm border-t-orange-700">
+                <Link to={"/login"}>Login</Link>
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>

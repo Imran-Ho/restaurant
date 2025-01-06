@@ -22,7 +22,7 @@ const TabItems = ({ items }) => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid lg:grid-cols-3 gap-10 sm:ml-4">
             {items.map((item) => (
               <FoodCard key={item._id} item={item}></FoodCard>
             ))}

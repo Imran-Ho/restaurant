@@ -90,7 +90,7 @@ const AdminHome = () => {
     );
   };
   return (
-    <div className="text-center">
+    <div className="lg:text-center">
       <h1 className="mb-4">
         Hi, welcome{" "}
         <span className="text-2xl text-red-500">
@@ -98,90 +98,92 @@ const AdminHome = () => {
         </span>
       </h1>
       {/* stat is used for admin */}
-      <div className="stats shadow mb-6">
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <FaDollarSign className="text-3xl"></FaDollarSign>
+      <div>
+        <div className="lg:stats shadow mb-6">
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaDollarSign className="text-3xl"></FaDollarSign>
+            </div>
+            <div className="stat-title text-red-500 text-2xl">Revenue</div>
+            <div className="stat-value">$ {adminState.revenue}</div>
           </div>
-          <div className="stat-title text-red-500 text-2xl">Revenue</div>
-          <div className="stat-value">$ {adminState.revenue}</div>
-        </div>
 
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <FaUsers className="text-3xl"></FaUsers>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaUsers className="text-3xl"></FaUsers>
+            </div>
+            <div className="stat-title text-red-500 text-2xl">Users</div>
+            <div className="stat-value">{adminState.users}</div>
+            {/* <div className="stat-desc">↗︎ 400 (22%)</div> */}
           </div>
-          <div className="stat-title text-red-500 text-2xl">Users</div>
-          <div className="stat-value">{adminState.users}</div>
-          {/* <div className="stat-desc">↗︎ 400 (22%)</div> */}
-        </div>
 
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <FaUtensils className="text-3xl"></FaUtensils>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaUtensils className="text-3xl"></FaUtensils>
+            </div>
+            <div className="stat-title text-red-500 text-2xl">All Orders</div>
+            <div className="stat-value">{adminState.orders}</div>
+            {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
           </div>
-          <div className="stat-title text-red-500 text-2xl">All Orders</div>
-          <div className="stat-value">{adminState.orders}</div>
-          {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
-        </div>
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <FaListAlt className="text-3xl"></FaListAlt>
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaListAlt className="text-3xl"></FaListAlt>
+            </div>
+            <div className="stat-title text-red-500 text-2xl">All Menus</div>
+            <div className="stat-value">{adminState.menuItems}</div>
+            {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
           </div>
-          <div className="stat-title text-red-500 text-2xl">All Menus</div>
-          <div className="stat-value">{adminState.menuItems}</div>
-          {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
         </div>
-      </div>
-      <div className="flex ">
-        <div className="w-1/2">
-          <BarChart
-            width={500}
-            height={300}
-            data={chartData}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="category" />
-            <YAxis />
-            <Bar
-              dataKey="quantity"
-              fill="#8884d8"
-              shape={<TriangleBar />}
-              label={{ position: "top" }}
+        <div className="lg:flex ">
+          <div className="w-1/2">
+            <BarChart
+              width={500}
+              height={300}
+              data={chartData}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
             >
-              {chartData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % 6]} />
-              ))}
-            </Bar>
-          </BarChart>
-        </div>
-        <div className="w-1/2">
-          <PieChart width={400} height={400}>
-            <Legend></Legend>
-            <Pie
-              data={pieCharData}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={80}
-              fill="#8884d8"
-              dataKey="value"
-            >
-              {pieCharData.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-          </PieChart>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="category" />
+              <YAxis />
+              <Bar
+                dataKey="quantity"
+                fill="#8884d8"
+                shape={<TriangleBar />}
+                label={{ position: "top" }}
+              >
+                {chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={colors[index % 6]} />
+                ))}
+              </Bar>
+            </BarChart>
+          </div>
+          <div className="w-1/2">
+            <PieChart width={400} height={400}>
+              <Legend></Legend>
+              <Pie
+                data={pieCharData}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={renderCustomizedLabel}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {pieCharData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+            </PieChart>
+          </div>
         </div>
       </div>
     </div>

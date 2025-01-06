@@ -18,9 +18,9 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [cart] = useCart();
   return (
-    <div className="flex">
+    <div className="lg:flex">
       {/* dashboard side bar */}
-      <div className="bg-orange-600 w-64 min-h-screen ">
+      <div className=" bg-orange-600 lg:w-64 lg:min-h-screen ">
         <ul className="menu">
           {isAdmin ? (
             <>
@@ -73,7 +73,7 @@ const Dashboard = () => {
             </>
           )}
           {/* shared navnar */}
-          <div className="divider">Main Page</div>
+          <div className="lg:divider">Main Page</div>
           <li>
             <NavLink to="/">
               <FaHome></FaHome>

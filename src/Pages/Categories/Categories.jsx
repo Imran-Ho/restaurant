@@ -19,7 +19,7 @@ const Categories = () => {
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
-        centeredSlides={true}
+        centeredSlides={false}
         pagination={{
           clickable: true,
         }}
@@ -28,31 +28,31 @@ const Categories = () => {
       >
         <SwiperSlide>
           <img src={slide1} alt="" />
-          <h2 className="text-3xl uppercase text-center -mt-28 text-white">
+          <h2 className="lg:text-3xl uppercase text-center -mt-28 text-white">
             Salad
           </h2>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide2} alt="" />
-          <h2 className="text-3xl uppercase text-center -mt-28 text-white">
+          <h2 className="lg:text-3xl uppercase text-center -mt-28 text-white">
             Pizza
           </h2>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide3} alt="" />
-          <h2 className="text-3xl uppercase text-center -mt-28 text-white">
+          <h2 className="lg:text-3xl uppercase text-center -mt-28 text-white">
             Soup
           </h2>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide4} alt="" />
-          <h2 className="text-3xl uppercase text-center -mt-28 text-white">
+          <h2 className="lg:text-3xl uppercase text-center -mt-28 text-white">
             dessert
           </h2>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide5} alt="" />
-          <h2 className="text-3xl uppercase text-center -mt-28 text-white">
+          <h2 className="lg:text-3xl uppercase text-center -mt-28 text-white">
             Salad
           </h2>
         </SwiperSlide>

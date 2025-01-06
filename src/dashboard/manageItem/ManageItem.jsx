@@ -42,7 +42,7 @@ const ManageItem = () => {
       ></SectionTitles>
       <div>
         <div className="overflow-x-auto">
-          <table className="table">
+          <table className="lg:table">
             {/* head */}
             <thead>
               <tr>
@@ -78,9 +78,6 @@ const ManageItem = () => {
                   <td>
                     {item.name}
                     <br />
-                    <span className="badge badge-ghost badge-sm">
-                      {item.recipe}
-                    </span>
                   </td>
                   <td>{item.price}</td>
                   <td>{item.category}</td>
