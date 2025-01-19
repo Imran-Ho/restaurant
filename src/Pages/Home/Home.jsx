@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Fake Restaurent | Home</title>
+        <title>Simple Restaurent | Home</title>
       </Helmet>
       <Bannar></Bannar>
       <Categories></Categories>

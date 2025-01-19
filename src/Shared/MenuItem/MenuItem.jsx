@@ -10,8 +10,8 @@ const MenuItem = ({ singleItem }) => {
           alt=""
         />
         <div>
-          <h1 className="uppercase">{name}----------</h1>
-          <p>{recipe}</p>
+          <h1 className="uppercase">{name}-----</h1>
+          <p>{recipe.slice(0, 50)}</p>
         </div>
         <p className="text-yellow-500">${price}</p>
       </div>
